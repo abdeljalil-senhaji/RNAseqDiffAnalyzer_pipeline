@@ -10,4 +10,4 @@ Développé en Snakemake, ce pipeline prend en charge l'analyse transcriptomique
 ---
 
 ## 📁 Structure du projet
-... En cours 
+En cours ... 
