@@ -1,4 +1,4 @@
-# MetaG4K_pipeline
+# RNAseqDiffAnalyzer_pipeline
 > * RNA-seq et des analyses différentielles*
 
 ---
