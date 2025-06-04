@@ -1,0 +1,10 @@
+rule aggregate_counts:
+    input:
+        counts1 = "{prefix}/{sample}/{sample}_ReadsPerGene.out.tab",
+        counts2 = "{prefix}/{sample}/{sample}_featurecounts.txt"
+    output:
+        "{prefix}/{sample}/{sample}_counts_matrix.csv"
+    shell:
+        """
+        cat {input} | cut -f1,{','.join(str(7 + i) for i in range(len(SAMPLES)))} > {output}
+        """

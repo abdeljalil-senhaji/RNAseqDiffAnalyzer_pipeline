@@ -1,5 +1,5 @@
 {
-    "description": "This config file is designed to run pipeline.",
+    "description": "This config file is designed to run pipeline RNA-seq.",
     "author": "Abdeljalil",
     "general_path":
     {
@@ -13,6 +13,7 @@
       "FASTA_FILE1": "/data/annotations/Human/hg38_no_alt/hg38_no_alt.fa",
       "FASTA_FILE": "/data/annotations/Human/hg38_no_alt/hg38_no_alt.fa",
       "star_index_hg38": "/data/annotations/Human/GRCh38/index/star/seqoia/2.7.8a",
+      "gtf": "/data/annotations/Human/GRCh38/index/star/seqoia/2.7.8a/Homo_sapiens.GRCh38.99.gtf",
       "DATABASE-Fungi": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/JGI_fungi/add_genome_ncbi_fungi_1kb.fasta",
       "DATABASE-Parasite": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/Parasite_db/add_2strain_verified2_all_veu_worm1_plasmo_ncbi_1kb.fasta",
       "SQLITE": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/NCBITaxa/.etetoolkit/taxa.sqlite",

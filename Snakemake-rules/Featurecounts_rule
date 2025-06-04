@@ -1,0 +1,13 @@
+rule featurecounts:
+    input:
+        bam = "{prefix}/{sample}/{sample}_dedup_reads.bam"
+    output:
+        counts = "{prefix}/{sample}/{sample}_featurecounts.txt"
+    log:
+        "{prefix}/{sample}/logs/{sample}.featurecounts.log"
+    params:
+        path_gtf = config["general_informations"]["gtf"]
+    shell:
+        """
+        featureCounts -T 4 -p -a {params.path_gtf} -o {output.counts} {input.bam} 2>&1 | tee {log}
+        """

@@ -2,8 +2,6 @@ rule star:
     input:
         R1 = "{prefix}/{sample}/{sample}R1_paired.fq.gz",
         R2 = "{prefix}/{sample}/{sample}R2_paired.fq.gz"
-        #R1 = "{prefix}/{sample}/{sample}R1_dedupe.fastq.gz",
-        #R2 = "{prefix}/{sample}/{sample}R2_dedupe.fastq.gz"
     output:
         #"{prefix}/{sample}/{sample}_star.bam"
         "{prefix}/{sample}/{sample}_Aligned.sortedByCoord.out.bam"

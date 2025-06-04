@@ -1,0 +1,12 @@
+rule markduplicates:
+        input:
+                "{prefix}/{sample}/{sample}_Aligned.sortedByCoord.out.bam"
+        output:
+                bam = temp("{prefix}/{sample}/{sample}_dedup_reads.bam"),
+                metrics = temp("{prefix}/{sample}/{sample}_metrics.txt")
+        log:
+                "{prefix}/{sample}/logs/{sample}_markduplicates.log"
+        params:
+                markduplicates = config["markduplicates"]["OPTIONS"]
+        shell:
+                "java -Xmx7500m -Xms7500m -XX:ParallelGCThreads=8 -XX:+AggressiveHeap -jar /usr/share/java/picard.jar MarkDuplicates {params.markduplicates} I={input} O={output.bam} M={output.metrics} VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=true 2>&1 | tee -a {log}"
