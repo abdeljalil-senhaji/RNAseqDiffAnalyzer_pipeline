@@ -1,0 +1,157 @@
+{
+  "__default__": {
+    "name": "Metagenomics",
+    "tags": "snakemake,Metagenomics",
+    "volume_snakemake": "snakemake",
+    "volume_home": "home",
+    "volume_scratch": "scratch",
+    "volume_annotations": "annotations",
+    "cpu": 1,
+    "mem": 1,
+    "image": "sequoia-docker-tools/snakemake:6.9.0"
+  },
+
+  "iget_samples":
+  {
+    "name": "iget_sample",
+    "tags": "snakemake,iget_sample",
+    "cpu": 1,
+    "mem": 1,
+    "image": "sequoia-docker-tools/snakemake:6.9.0"
+  },
+  "repair": {
+    "name": "repair",
+    "tags": "snakemake,repair",
+    "cpu": 8,
+    "mem": 16,
+    "image": "sequoia-docker-tools/bbmap:38.23-1"
+  },
+
+  "dedupe": {
+    "name": "dedupe",
+    "tags": "snakemake,dedupe",
+    "cpu": 10,
+    "mem": 30,
+    "image": "sequoia-docker-tools/bbmap:38.23-1"
+  },
+
+  "trimmomatic": {
+    "name": "trimmomatic",
+    "tags": "snakemake,trimmomatic",
+    "cpu": 1,
+    "mem": 4,
+    "image": "sequoia-docker-tools/trimmomatic:0.36-1"
+  },
+  "fastqc": {
+    "name": "fastqc",
+    "tags": "snakemake,fastqc",
+    "cpu": 2,
+    "mem": 10,
+    "image": "gitlab-bioinfo.aphp.fr:5000/sequoia-docker-tools/fastqc:0.11.9-1"
+  },
+  "bwa_mem": {
+     "name": "bwa_mem",
+     "tags": "snakemake,bwa_mem",
+      "cpu": 8,
+      "mem": 40,
+    "image": "sequoia-docker-tools/bwa:0.7.15-1"
+  },
+  "samtools_sam_to_bam": {
+     "name": "samtools_sam_to_bam",
+     "tags": "snakemake,samtools_sam_to_bam",
+     "cpu": 1,
+     "mem": 4,
+     "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "samtools_flagstat": {
+     "name": "samtools_flagstat",
+     "tags": "snakemake,samtools_flagstat",
+     "cpu": 1,
+     "mem": 1,
+     "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "samtools_view": {
+      "name": "samtools_view",
+      "tags": "snakemake,samtools_view",
+      "cpu": 1,
+      "mem": 4,
+      "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "samtools_flagstat1": {
+     "name": "samtools_flagstat1",
+     "tags": "snakemake,samtools_flagstat1",
+     "cpu": 1,
+     "mem": 1,
+     "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "samtools_sort": {
+      "name": "samtools_sort",
+      "tags": "snakemake,samtools_sort",
+      "cpu": 1,
+      "mem": 4,
+      "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "samtools_get_unmapped": {
+      "name": "samtools_get_unmapped",
+      "tags": "snakemake,samtools_get_unmapped",
+      "cpu": 1,
+      "mem": 4,
+      "image": "sequoia-docker-tools/samtools:1.11-1"
+  },
+  "spades": {
+    "name": "spades",
+    "tags": "snakemake,spades",
+    "cpu": 8,
+    "mem": 16,
+    "image": "gitlab-bioinfo.aphp.fr:5000/sequoia-docker-tools/spades:3.15.5-1"
+  },
+  "star": {
+    "name": "star",
+    "tags": "snakemake,star",
+    "cpu": 4,
+    "mem": 60,
+    "image": "gitlab-bioinfo.aphp.fr:5000/sequoia-docker-tools/star:2.7.8a-1"
+  },
+  "seqkit": {
+    "name": "seqkit",
+    "tags": "snakemake,seqkit",
+    "cpu": 4,
+    "mem": 8,
+    "image": "sequoia-docker-tools/seqkit:0.7.2-1"
+  },
+  "blast": {
+    "name": "blast",
+    "tags": "snakemake,blast",
+    "cpu": 8,
+    "mem": 16,
+    "image": "sequoia-docker-tools/blast:2.12.0-1"
+  },
+  "blast_fungi": {
+    "name": "blast_fungi",
+    "tags": "snakemake,blast_fungi",
+    "cpu": 8,
+    "mem": 16,
+    "image": "sequoia-docker-tools/blast:2.12.0-1"
+  },
+  "extract_info": {
+    "name": "extract_info",
+    "tags": "snakemake,extract_info",
+    "cpu": 4,
+    "mem": 8,
+    "image": "sequoia-docker-tools/metagenomic-utils-sls:0.0.4-1"
+  },
+  "count_info": {
+    "name": "count_info",
+    "tags": "snakemake,count_info",
+    "cpu": 1,
+    "mem": 2,
+    "image": "sequoia-docker-tools/snakemake:3.9.0-5"
+  },
+  "getnames": {
+    "name": "getnames",
+    "tags": "snakemake,getnames",
+    "cpu": 2,
+    "mem": 4,
+    "image": "sequoia-docker-tools/metagenomic-utils-sls:0.0.4-1"
+  }
+}

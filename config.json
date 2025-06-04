@@ -1,0 +1,117 @@
+{
+    "description": "This config file is designed to run pipeline.",
+    "author": "Abdeljalil",
+    "general_path":
+    {
+        "RULE_PATH" : "/scratch/recherche/asenhaji/v1_pipe_delete_hg38/Snakemake-rules",
+        "OUTPUT_PATH": "/scratch/recherche/asenhaji/v1_pipe_delete_hg38/output",
+        "IRODS_OUTPUT_PATH": ""
+    },
+
+    "general_informations":
+    {
+      "FASTA_FILE1": "/data/annotations/Human/hg38_no_alt/hg38_no_alt.fa",
+      "FASTA_FILE": "/data/annotations/Human/hg38_no_alt/hg38_no_alt.fa",
+      "star_index_hg38": "/data/annotations/Human/GRCh38/index/star/seqoia/2.7.8a",
+      "DATABASE-Fungi": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/JGI_fungi/add_genome_ncbi_fungi_1kb.fasta",
+      "DATABASE-Parasite": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/Parasite_db/add_2strain_verified2_all_veu_worm1_plasmo_ncbi_1kb.fasta",
+      "SQLITE": "/scratch/recherche/asenhaji/v7_pipMeta_4Kingdoms/db/NCBITaxa/.etetoolkit/taxa.sqlite",
+      "PIPELINE": "",
+      "USER": "",
+      "MAIL": "",
+      "ID_OPERATION": "",
+      "ID_PIPELINE": "",
+      "TEAM_ID": "",
+      "GENOME_VERSION": "",
+      "GENOME_ID": "",
+      "PROJECT_NAME": "",
+      "HOSPIT": "",
+      "PANEL_NAME": "",
+      "PANEL_ID": "",
+      "ANALYSIS_NAME": "",
+      "SEQUENCER": "",
+      "TARGET_TYPE": "",
+      "INSERT_SIZE": "400",
+      "READ_LENGTH": "",
+      "REFERENCE_NAME": "hg_g1k_v37",
+      "REFERENCE_DATE": "20120322"
+    },
+   "listTaxId":
+    {
+    },
+   "script_pip":
+    {
+         "count": "/scratch/recherche/asenhaji/v1_pipe_delete_hg38/script/count.sh",
+         "extract_info_blast": "/scratch/recherche/asenhaji/v1_pipe_delete_hg38/script/extract_info_blast.py",
+         "getnames": "/scratch/recherche/asenhaji/v9_pipMeta_4Kingdoms/script/getNamesv4.py"
+    },
+   "samples":
+    {
+         "path": "/scratch/recherche/asenhaji/v1_pipe_delete_hg38/data"
+    },
+   "iget_samples":
+    {
+        "OPTIONS": ""
+    },
+   "repair":
+    {
+    "OPTIONS": "threads=10"
+    },
+   "dedupe":
+    {
+    "OPTIONS": "qin=33 threads=10"
+    },
+   "trimmomatic":
+    {
+    "OPTIONS": "AVGQUAL:20 MINLEN:50",
+    "TYPE": "PE -threads 3"
+    },
+    "fastqc": {
+    "OPTIONS": ""
+    },
+    "bwa_mem": {
+        "OPTIONS": "-t 8 -M"
+    },
+    "samtools_sam_to_bam": {
+        "OPTIONS": "-b"
+    },
+    "samtools_flagstat": {
+        "OPTIONS": ""
+    },
+    "samtools_flagstat1": {
+        "OPTIONS": ""
+    },
+    "samtools_view": {
+        "OPTIONS": ""
+    },
+    "samtools_sort": {
+        "OPTIONS": ""
+    },
+    "samtools_get_unmapped": {
+        "OPTIONS":  "-N"
+    },
+    "spades": {
+        "OPTIONS": "-t 8 --careful"
+    },
+    "star": {
+        "OPTIONS": "--readFilesCommand zcat --outSAMtype BAM SortedByCoordinate  --quantMode GeneCounts"
+    },
+    "seqkit": {
+        "OPTIONS": ""
+    },
+    "blast": {
+        "OPTIONS": "-task megablast -num_threads 8 -evalue 10e-10 -outfmt \"7 qseqid sseqid sstart send evalue bitscore slen staxids\" -max_target_seqs 1 -max_hsps 1"
+    },
+    "blast_fungi": {
+        "OPTIONS": "-task megablast -num_threads 8 -evalue 10e-10 -outfmt \"7 qseqid sseqid sstart send evalue bitscore slen staxids\" -max_target_seqs 1 -max_hsps 1"
+    },
+    "extract_info": {
+        "OPTIONS": ""
+    },
+    "count_info": {
+        "OPTIONS": ""
+    },
+    "getnames": {
+        "OPTIONS": ""
+    }
+}

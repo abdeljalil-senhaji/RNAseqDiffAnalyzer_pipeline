@@ -1,0 +1,13 @@
+rule fastqc:
+	input:
+		R1 = "{prefix}/{sample}/{sample}{mate}_paired.fq.gz"
+	output:
+		htmlfile = "{prefix}/{sample}/fastqc/{sample}{mate}_paired.fq.html",
+		zipfile = "{prefix}/{sample}/fastqc/{sample}{mate}_paired.fq.zip"
+		#directory("{prefix}/{sample}/fastqc/{sample}{mate}_paired_fastqc.html")
+	log:
+		"{prefix}/{sample}/logs/{sample}.{mate}_fastqc.log"
+	params:
+		fastqc_options = config["fastqc"]["OPTIONS"]
+	shell:
+		'docker_wrapper -c \'fastqc {input.R1} -o {output} {params.fastqc_options}\' 2>&1 | tee -a {log} '                 

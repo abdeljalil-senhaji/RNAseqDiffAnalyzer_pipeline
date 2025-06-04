@@ -1,0 +1,9 @@
+rule iget_samples:
+        output:
+                temp("{prefix}/{sample}/{sample}_{mate}_001.fastq.gz")
+        log:
+                "{prefix}/logs/{sample}/{sample}_{mate}_iget_samples.log"
+        params:
+                input_path = config["samples"]["path"]
+        shell:
+                'cp {params.input_path}/{wildcards.sample}_{wildcards.mate}_001.fastq.gz {output}  | tee -a {log}'

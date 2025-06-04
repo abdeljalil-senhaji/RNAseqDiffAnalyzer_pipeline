@@ -1,0 +1,19 @@
+rule star:
+    input:
+        R1 = "{prefix}/{sample}/{sample}R1_paired.fq.gz",
+        R2 = "{prefix}/{sample}/{sample}R2_paired.fq.gz"
+        #R1 = "{prefix}/{sample}/{sample}R1_dedupe.fastq.gz",
+        #R2 = "{prefix}/{sample}/{sample}R2_dedupe.fastq.gz"
+    output:
+        #"{prefix}/{sample}/{sample}_star.bam"
+        "{prefix}/{sample}/{sample}_Aligned.sortedByCoord.out.bam"
+    log:
+        "{prefix}/{sample}/logs/{sample}.star.log"
+    params:
+        star_options = config["star"]["OPTIONS"],
+        path_ref = config["general_informations"]["star_index_hg38"]
+    shell:
+        """
+        #--readFilesCommand zcat --outSAMtype BAM SortedByCoordinate  --quantMode GeneCounts  --outFilterMultimapNmax 20 --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04
+        STAR   --runThreadN 8 --genomeDir {params.path_ref} {params.star_options} --readFilesIn {input.R1}  {input.R2} --outFileNamePrefix {wildcards.prefix}/{wildcards.sample}/{wildcards.sample}_ 2>&1 | tee -a {log} 
+        """
