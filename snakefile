@@ -43,8 +43,6 @@ star = expand((output_path+"/{sample_id}/{sample_id}_Aligned.sortedByCoord.out.b
 
 rule all:
     input:
-#        trimmomatic
-#        spades
          fastqc,
          star
     shell:
