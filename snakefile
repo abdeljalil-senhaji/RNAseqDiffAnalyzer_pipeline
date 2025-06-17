@@ -40,6 +40,7 @@ for sample_id in os.listdir(directory) :
 fastqc = expand((output_path+"/{sample_id}/fastqc/{sample_id}{mate_id}_paired.fq.html", output_path+"/{sample_id}/fastqc/{sample_id}{mate_id}_paired.fq.zip"), sample_id = sample_ids, mate_id = mate_ids),
 #fastqc = expand((output_path+"/{sample_id}/fastqc/{sample_id}{mate_id}_paired_fastqc.html"), sample_id = sample_ids, mate_id = mate_ids),
 #spades = expand((output_path+"/{sample_id}/{sample_id}_contigs.fasta"),sample_id=sample_ids)
+
 star = expand((output_path+"/{sample_id}/{sample_id}_Aligned.sortedByCoord.out.bam"),sample_id=sample_ids)
 #=================================================== Rule all ==================================================#
 
