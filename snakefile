@@ -20,8 +20,7 @@ include: rulePath+"/star_rule"
 #============================= RECUP SAMPLES INFORMATIOS =================================#
 
 mate_ids = ["R1","R2"]
-fungi_parasite_ids = ["fungi", "parasite"]
-#fungi_parasite_ids = ["Fungi"]
+
 
 sample_ids = []
 directory = '/scratch/recherche/asenhaji/v1_RNAseqDiffAnalyzer/data'
@@ -47,6 +46,6 @@ star = expand((output_path+"/{sample_id}/{sample_id}_Aligned.sortedByCoord.out.b
 rule all:
     input:
          fastqc,
-         star
+          star
     shell:
         "touch "+output_path+"/done"
