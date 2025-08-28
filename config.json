@@ -40,8 +40,7 @@
    "script_pip":
     {
          "count": "/scratch/recherche/asenhaji/v1_RNAseqDiffAnalyzer/script/count.sh",
-         "extract_info_blast": "/scratch/recherche/asenhaji/v1_RNAseqDiffAnalyzer/script/extract_info_blast.py",
-         "getnames": "/scratch/recherche/asenhaji/v9_pipMeta_4Kingdoms/script/getNamesv4.py"
+         "extract_info_blast": "/scratch/recherche/asenhaji/v1_RNAseqDiffAnalyzer/script/extract_info_blast.py"
     },
    "samples":
     {
