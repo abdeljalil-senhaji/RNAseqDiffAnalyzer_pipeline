@@ -1,7 +1,5 @@
 import os
 
-
-
 #=============== CONFIG FILES AND GENERAL PATHS ==================#
 
 rulePath = config["general_path"]["RULE_PATH"]
@@ -12,9 +10,9 @@ output_path = config["general_path"]["OUTPUT_PATH"]
 include: rulePath+"/iget_samples_rule"
 
 #include: rulePath+"/repair_rule"
-include: rulePath+"/dedupe_rule"
-include: rulePath+"/trimmomatic_rule"
-include: rulePath+"/fastqc_rule"
+#include: rulePath+"/dedupe_rule"
+#include: rulePath+"/trimmomatic_rule"
+#include: rulePath+"/fastqc_rule"
 include: rulePath+"/star_rule"
 #include: rulePath+"/spades_rule"
 #============================= RECUP SAMPLES INFORMATIOS =================================#
